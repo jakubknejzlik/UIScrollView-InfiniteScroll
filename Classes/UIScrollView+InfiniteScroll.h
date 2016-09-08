@@ -11,12 +11,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, UIScrollViewInfiniteScrollDirection) {
+    UIScrollViewInfiniteScrollDirectionVertical = 0,
+    UIScrollViewInfiniteScrollDirectionHorizontal = 1,
+};
+
 @interface UIScrollView (InfiniteScroll)
 
 /**
  *  Flag that indicates whether infinite scroll is animating
  */
 @property (nonatomic, readonly, getter=isAnimatingInfiniteScroll) BOOL animatingInfiniteScroll;
+
+/**
+ *  Infinite scroll direction (default: UIScrollViewInfiniteScrollDirectionVertical)
+ */
+@property (nonatomic) UIScrollViewInfiniteScrollDirection infiniteScrollDirection;
 
 /**
  *  Infinite scroll activity indicator style (default: UIActivityIndicatorViewStyleGray on iOS, UIActivityIndicatorViewStyleWhite on tvOS)

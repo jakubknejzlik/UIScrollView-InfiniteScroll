@@ -32,6 +32,11 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         // Set custom indicator margin
         collectionView?.infiniteScrollIndicatorMargin = 40
         
+        // Set scroll direction based on CollectionView layout
+        if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            collectionView?.infiniteScrollDirection = (layout.scrollDirection == .Horizontal) ? .Horizontal : .Vertical
+        }
+        
         // Add infinite scroll handler
         collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
             self?.fetchData() {
